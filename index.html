@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anime Next Watch Generator - Find your next anime obsession.">
+    <title>Anime Next | Discover Recommendations</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-glow top-left"></div>
+    <div class="bg-glow bottom-right"></div>
+
+    <div class="app-wrapper">
+        <!-- Main Header -->
+        <header class="glass-nav">
+            <div class="container nav-content">
+                <div class="logo">
+                    <span class="logo-text">ANIME<span class="highlight">NEXT</span></span>
+                </div>
+                
+                <!-- Filter Navigation -->
+                <nav class="filters" aria-label="Anime filter categories">
+                    <button class="filter-btn active" data-filter="trending" aria-label="Show trending anime">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        Trending Now
+                    </button>
+                    <button class="filter-btn" data-filter="top-rated" aria-label="Show top rated anime">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        Top Rated
+                    </button>
+                    
+                    <div class="genre-wrapper">
+                        <select id="genre-select" class="genre-dropdown" aria-label="Filter by genre">
+                            <option value="">Genre</option>
+                            <option value="1">Action</option>
+                            <option value="2">Adventure</option>
+                            <option value="4">Comedy</option>
+                            <option value="8">Drama</option>
+                            <option value="10">Fantasy</option>
+                            <option value="14">Horror</option>
+                            <option value="22">Romance</option>
+                            <option value="24">Sci-Fi</option>
+                            <option value="36">Slice of Life</option>
+                            <option value="37">Supernatural</option>
+                        </select>
+                        <div class="custom-arrow">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content Canvas -->
+        <main class="container content-area">
+            
+            <header class="section-header">
+                <h2 id="section-title">Trending Now</h2>
+                <p id="section-subtitle">The hottest shows everyone is watching this season.</p>
+            </header>
+
+            <!-- Loading State -->
+            <div id="loading" class="loading-container hidden">
+                <div class="loader">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                    </svg>
+                </div>
+                <p>Curating recommendations...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-state" class="error-container hidden">
+                <div class="error-icon">⚠️</div>
+                <p>Failed to connect to the Anime Database.</p>
+                <button id="retry-btn" class="retry-action">Try Again</button>
+            </div>
+
+            <!-- Anime Grid -->
+            <div id="anime-grid" class="anime-grid">
+                <!-- Javascript will inject cards here -->
+            </div>
+            
+            <!-- Skeleton Grid Template for Initial Load -->
+            <div id="skeleton-grid" class="anime-grid">
+                <!-- Skeletons rendered by JS initially -->
+            </div>
+
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
