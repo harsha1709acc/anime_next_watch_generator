@@ -1,14 +1,9 @@
-/* ==============================================
-   CSS DESIGN SYSTEM — ANIME NEXT WATCH GENERATOR
-   Features: Dark/Light Mode, Search, Sort, Favorites
-   ============================================== */
 
-/* ============================
-   THEME TOKENS (Dark Mode Default)
-   ============================ */
+
+
 :root,
 [data-theme="dark"] {
-    /* Color Palette */
+    
     --bg-base: #0a0a0f;
     --bg-surface: #14141e;
     --bg-glass: rgba(20, 20, 30, 0.65);
@@ -35,9 +30,7 @@
     --footer-bg: rgba(10, 10, 15, 0.8);
 }
 
-/* ============================
-   LIGHT MODE TOKENS
-   ============================ */
+
 [data-theme="light"] {
     --bg-base: #f4f2f7;
     --bg-surface: #ffffff;
@@ -65,15 +58,13 @@
     --footer-bg: rgba(255, 255, 255, 0.8);
 }
 
-/* ============================
-   DESIGN TOKENS (Shared)
-   ============================ */
+
 :root {
-    /* Typography */
+    
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
     
-    /* Metrics */
+    
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
@@ -83,9 +74,7 @@
     --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ============================
-   GLOBAL RESET
-   ============================ */
+
 * {
     margin: 0;
     padding: 0;
@@ -103,9 +92,7 @@ body {
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* ============================
-   BACKGROUND GRADIENTS
-   ============================ */
+
 .bg-glow {
     position: fixed;
     width: 600px;
@@ -134,9 +121,7 @@ body {
     background: radial-gradient(circle, var(--accent-secondary) 0%, transparent 70%);
 }
 
-/* ============================
-   LAYOUT
-   ============================ */
+
 .container {
     max-width: 1440px;
     margin: 0 auto;
@@ -149,9 +134,7 @@ body {
     min-height: 100vh;
 }
 
-/* ============================
-   HEADER & GLASS NAVIGATION
-   ============================ */
+
 .glass-nav {
     position: sticky;
     top: 0;
@@ -190,9 +173,7 @@ body {
     font-weight: 400;
 }
 
-/* ============================
-   NAV ACTION BUTTONS (Theme Toggle + Favorites)
-   ============================ */
+
 .nav-actions {
     display: flex;
     gap: 0.5rem;
@@ -227,7 +208,7 @@ body {
     box-shadow: 0 4px 15px var(--accent-glow);
 }
 
-/* Theme Toggle Icon Visibility */
+
 .theme-btn .icon-sun {
     display: none;
 }
@@ -242,7 +223,7 @@ body {
     display: none;
 }
 
-/* Favorites Badge */
+
 .badge {
     position: absolute;
     top: -4px;
@@ -261,9 +242,7 @@ body {
     line-height: 1;
 }
 
-/* ============================
-   CONTROLS BAR (Search + Filters + Sort)
-   ============================ */
+
 .controls-bar {
     display: flex;
     gap: 0.75rem;
@@ -271,9 +250,7 @@ body {
     flex-wrap: wrap;
 }
 
-/* ============================
-   SEARCH INPUT
-   ============================ */
+
 .search-wrapper {
     position: relative;
     display: flex;
@@ -340,9 +317,7 @@ body {
     color: white;
 }
 
-/* ============================
-   FILTERS
-   ============================ */
+
 .filters {
     display: flex;
     gap: 0.5rem;
@@ -434,9 +409,7 @@ body {
     color: var(--text-primary);
 }
 
-/* ============================
-   ACTIVE FILTERS DISPLAY
-   ============================ */
+
 .active-filters {
     display: flex;
     align-items: center;
@@ -491,9 +464,7 @@ body {
     color: white;
 }
 
-/* ============================
-   MAIN CONTENT AREA
-   ============================ */
+
 .content-area {
     padding: 3rem 5%;
     flex: 1;
@@ -518,18 +489,14 @@ body {
     transition: color 0.3s ease;
 }
 
-/* ============================
-   GRID LAYOUT
-   ============================ */
+
 .anime-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 2rem;
 }
 
-/* ============================
-   LOADING & ERROR & NO RESULTS STATES
-   ============================ */
+
 .hidden {
     display: none !important;
 }
@@ -579,7 +546,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* No Results */
+
 .no-results-container {
     color: var(--text-secondary);
 }
@@ -599,9 +566,7 @@ body {
     color: var(--text-secondary);
 }
 
-/* ============================
-   ANIME CARD COMPONENTS
-   ============================ */
+
 .anime-card {
     position: relative;
     border-radius: var(--radius-md);
@@ -635,7 +600,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Gradient Overlay for image */
+
 .card-overlay {
     position: absolute;
     inset: 0;
@@ -651,7 +616,7 @@ body {
     background: linear-gradient(to top, rgba(10, 10, 15, 0.9) 0%, rgba(10, 10, 15, 0.3) 50%, transparent 100%);
 }
 
-/* Card Info */
+
 .card-score {
     position: absolute;
     top: 1rem;
@@ -725,9 +690,7 @@ body {
     transform: translateY(0);
 }
 
-/* ============================
-   FAVORITE BUTTON ON CARD
-   ============================ */
+
 .favorite-btn {
     position: absolute;
     top: 1rem;
@@ -775,7 +738,7 @@ body {
     stroke: var(--accent-heart);
 }
 
-/* Heart Pop Animation */
+
 @keyframes heartPop {
     0% { transform: scale(1); }
     30% { transform: scale(1.35); }
@@ -787,9 +750,7 @@ body {
     animation: heartPop 0.4s ease-out;
 }
 
-/* ============================
-   EXPANDED SYNOPSIS STATE
-   ============================ */
+
 .synopsis-panel {
     position: absolute;
     inset: 0;
@@ -866,7 +827,7 @@ body {
     color: #4a4a5e;
 }
 
-/* Synopsis Panel Actions */
+
 .synopsis-actions {
     padding-top: 0.75rem;
     border-top: 1px solid var(--border-glass);
@@ -893,7 +854,7 @@ body {
     transform: translateY(-1px);
 }
 
-/* Custom Scrollbar for synopsis */
+
 .synopsis-content::-webkit-scrollbar {
     width: 4px;
 }
@@ -906,9 +867,7 @@ body {
     border-radius: var(--radius-pill);
 }
 
-/* ============================
-   SKELETONS
-   ============================ */
+
 .skeleton-card {
     aspect-ratio: 2 / 3;
     background: var(--bg-glass-card);
@@ -931,9 +890,7 @@ body {
     100% { transform: translateX(100%); }
 }
 
-/* ============================
-   FOOTER
-   ============================ */
+
 .app-footer {
     padding: 2rem 0;
     text-align: center;
@@ -960,9 +917,7 @@ body {
     color: var(--text-primary);
 }
 
-/* ============================
-   RESPONSIVE
-   ============================ */
+
 @media (max-width: 768px) {
     .nav-top-row {
         width: 100%;

@@ -5,19 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Anime Next Watch Generator - Find your next anime obsession.">
     <title>Anime Next | Discover Recommendations</title>
-    <!-- Google Fonts for Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Background Elements -->
     <div class="bg-glow top-left"></div>
     <div class="bg-glow bottom-right"></div>
 
     <div class="app-wrapper">
-        <!-- Main Header -->
         <header class="glass-nav">
             <div class="container nav-content">
                 <div class="nav-top-row">
@@ -26,13 +23,11 @@
                     </div>
                     
                     <div class="nav-actions">
-                        <!-- Favorites Counter -->
                         <button id="favorites-toggle" class="icon-btn favorites-btn" aria-label="View favorites" title="View Favorites">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                             <span id="favorites-count" class="badge">0</span>
                         </button>
 
-                        <!-- Theme Toggle -->
                         <button id="theme-toggle" class="icon-btn theme-btn" aria-label="Toggle theme" title="Toggle Dark/Light Mode">
                             <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
                             <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -40,9 +35,7 @@
                     </div>
                 </div>
                 
-                <!-- Search & Controls Bar -->
                 <div class="controls-bar">
-                    <!-- Search Input -->
                     <div class="search-wrapper" id="search-wrapper">
                         <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                         <input type="text" id="search-input" class="search-input" placeholder="Search anime by title..." aria-label="Search anime by title">
@@ -51,7 +44,6 @@
                         </button>
                     </div>
 
-                    <!-- Filter Navigation -->
                     <nav class="filters" aria-label="Anime filter categories">
                         <button class="filter-btn active" data-filter="trending" aria-label="Show trending anime">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
@@ -81,7 +73,6 @@
                             </div>
                         </div>
 
-                        <!-- Sort Dropdown -->
                         <div class="genre-wrapper">
                             <select id="sort-select" class="genre-dropdown" aria-label="Sort anime">
                                 <option value="">Sort By</option>
@@ -101,7 +92,6 @@
             </div>
         </header>
 
-        <!-- Main Content Canvas -->
         <main class="container content-area">
             
             <header class="section-header">
@@ -109,13 +99,11 @@
                 <p id="section-subtitle">The hottest shows everyone is watching this season.</p>
             </header>
 
-            <!-- Active Filters Display -->
             <div id="active-filters" class="active-filters hidden">
                 <span class="active-filter-label">Showing results for:</span>
                 <div id="active-filter-tags" class="active-filter-tags"></div>
             </div>
 
-            <!-- Loading State -->
             <div id="loading" class="loading-container hidden">
                 <div class="loader">
                     <svg viewBox="0 0 50 50">
@@ -125,14 +113,12 @@
                 <p>Curating recommendations...</p>
             </div>
 
-            <!-- Error State -->
             <div id="error-state" class="error-container hidden">
                 <div class="error-icon">⚠️</div>
                 <p>Failed to connect to the Anime Database.</p>
                 <button id="retry-btn" class="retry-action">Try Again</button>
             </div>
 
-            <!-- No Results State -->
             <div id="no-results" class="no-results-container hidden">
                 <div class="no-results-icon">
                     <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
@@ -141,19 +127,14 @@
                 <p>Try adjusting your search or filters.</p>
             </div>
 
-            <!-- Anime Grid -->
             <div id="anime-grid" class="anime-grid">
-                <!-- Javascript will inject cards here -->
             </div>
             
-            <!-- Skeleton Grid Template for Initial Load -->
             <div id="skeleton-grid" class="anime-grid">
-                <!-- Skeletons rendered by JS initially -->
             </div>
 
         </main>
 
-        <!-- Footer -->
         <footer class="app-footer">
             <div class="container">
                 <p>Powered by <a href="https://jikan.moe" target="_blank" rel="noopener noreferrer">Jikan API</a> · Built with ❤️</p>
