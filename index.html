@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,40 +20,84 @@
         <!-- Main Header -->
         <header class="glass-nav">
             <div class="container nav-content">
-                <div class="logo">
-                    <span class="logo-text">ANIME<span class="highlight">NEXT</span></span>
+                <div class="nav-top-row">
+                    <div class="logo">
+                        <span class="logo-text">ANIME<span class="highlight">NEXT</span></span>
+                    </div>
+                    
+                    <div class="nav-actions">
+                        <!-- Favorites Counter -->
+                        <button id="favorites-toggle" class="icon-btn favorites-btn" aria-label="View favorites" title="View Favorites">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            <span id="favorites-count" class="badge">0</span>
+                        </button>
+
+                        <!-- Theme Toggle -->
+                        <button id="theme-toggle" class="icon-btn theme-btn" aria-label="Toggle theme" title="Toggle Dark/Light Mode">
+                            <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                            <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                        </button>
+                    </div>
                 </div>
                 
-                <!-- Filter Navigation -->
-                <nav class="filters" aria-label="Anime filter categories">
-                    <button class="filter-btn active" data-filter="trending" aria-label="Show trending anime">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                        Trending Now
-                    </button>
-                    <button class="filter-btn" data-filter="top-rated" aria-label="Show top rated anime">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        Top Rated
-                    </button>
-                    
-                    <div class="genre-wrapper">
-                        <select id="genre-select" class="genre-dropdown" aria-label="Filter by genre">
-                            <option value="">Genre</option>
-                            <option value="1">Action</option>
-                            <option value="2">Adventure</option>
-                            <option value="4">Comedy</option>
-                            <option value="8">Drama</option>
-                            <option value="10">Fantasy</option>
-                            <option value="14">Horror</option>
-                            <option value="22">Romance</option>
-                            <option value="24">Sci-Fi</option>
-                            <option value="36">Slice of Life</option>
-                            <option value="37">Supernatural</option>
-                        </select>
-                        <div class="custom-arrow">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                        </div>
+                <!-- Search & Controls Bar -->
+                <div class="controls-bar">
+                    <!-- Search Input -->
+                    <div class="search-wrapper" id="search-wrapper">
+                        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <input type="text" id="search-input" class="search-input" placeholder="Search anime by title..." aria-label="Search anime by title">
+                        <button id="search-clear" class="search-clear hidden" aria-label="Clear search">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        </button>
                     </div>
-                </nav>
+
+                    <!-- Filter Navigation -->
+                    <nav class="filters" aria-label="Anime filter categories">
+                        <button class="filter-btn active" data-filter="trending" aria-label="Show trending anime">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            Trending
+                        </button>
+                        <button class="filter-btn" data-filter="top-rated" aria-label="Show top rated anime">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            Top Rated
+                        </button>
+                        
+                        <div class="genre-wrapper">
+                            <select id="genre-select" class="genre-dropdown" aria-label="Filter by genre">
+                                <option value="">Genre</option>
+                                <option value="1">Action</option>
+                                <option value="2">Adventure</option>
+                                <option value="4">Comedy</option>
+                                <option value="8">Drama</option>
+                                <option value="10">Fantasy</option>
+                                <option value="14">Horror</option>
+                                <option value="22">Romance</option>
+                                <option value="24">Sci-Fi</option>
+                                <option value="36">Slice of Life</option>
+                                <option value="37">Supernatural</option>
+                            </select>
+                            <div class="custom-arrow">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </div>
+
+                        <!-- Sort Dropdown -->
+                        <div class="genre-wrapper">
+                            <select id="sort-select" class="genre-dropdown" aria-label="Sort anime">
+                                <option value="">Sort By</option>
+                                <option value="score-desc">Score: High → Low</option>
+                                <option value="score-asc">Score: Low → High</option>
+                                <option value="title-asc">Title: A → Z</option>
+                                <option value="title-desc">Title: Z → A</option>
+                                <option value="year-desc">Newest First</option>
+                                <option value="year-asc">Oldest First</option>
+                            </select>
+                            <div class="custom-arrow">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
             </div>
         </header>
 
@@ -64,6 +108,12 @@
                 <h2 id="section-title">Trending Now</h2>
                 <p id="section-subtitle">The hottest shows everyone is watching this season.</p>
             </header>
+
+            <!-- Active Filters Display -->
+            <div id="active-filters" class="active-filters hidden">
+                <span class="active-filter-label">Showing results for:</span>
+                <div id="active-filter-tags" class="active-filter-tags"></div>
+            </div>
 
             <!-- Loading State -->
             <div id="loading" class="loading-container hidden">
@@ -82,6 +132,15 @@
                 <button id="retry-btn" class="retry-action">Try Again</button>
             </div>
 
+            <!-- No Results State -->
+            <div id="no-results" class="no-results-container hidden">
+                <div class="no-results-icon">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </div>
+                <h3>No anime found</h3>
+                <p>Try adjusting your search or filters.</p>
+            </div>
+
             <!-- Anime Grid -->
             <div id="anime-grid" class="anime-grid">
                 <!-- Javascript will inject cards here -->
@@ -93,6 +152,13 @@
             </div>
 
         </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="container">
+                <p>Powered by <a href="https://jikan.moe" target="_blank" rel="noopener noreferrer">Jikan API</a> · Built with ❤️</p>
+            </div>
+        </footer>
     </div>
 
     <script src="app.js"></script>
